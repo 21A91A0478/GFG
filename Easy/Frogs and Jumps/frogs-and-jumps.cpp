@@ -12,7 +12,7 @@ class Solution {
         // Code here
         vector<bool> prime(leaves+1, false);
         for(int i = 0; i < N; i++){
-            if(frogs[i] <= leaves && !prime[frogs[i]])
+            if(!prime[frogs[i]])
             for(int j = frogs[i]; j <= leaves; j+=frogs[i]){
                 prime[j] = true;
             }
@@ -28,6 +28,7 @@ class Solution {
         return s;
     }
 };
+
 
 
 //{ Driver Code Starts.
