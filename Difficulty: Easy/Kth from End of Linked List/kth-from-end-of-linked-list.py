@@ -12,20 +12,24 @@
 #Function to find the data of kth node from the end of a linked list
 def getKthFromLast(head, k):
     #code here
+    if not head:
+        return head
+    
     c = 0
     temp = head
     while temp:
         temp = temp.next
         c += 1
     
-    if k > c or k <= 0:
+    if k > c:
         return -1
-        
+    k = c - k
     temp = head
-    for i in range(c-k):
+    for i in range(k):
         temp = temp.next
     
     return temp.data
+    
 
 
 #{ 
