@@ -4,18 +4,15 @@ class Solution:
 
     def findMinDiff(self, A,N,M):
         A.sort()
-        i = 0
-        j = M-1
-        mini = 999999
-        while i < j and j < N:
-            d = A[j] - A[i]
-            mini = min(mini, d)
-            i += 1
-            j += 1
-        if mini == 999999:
-            return 0
-        return mini
+        m = float("inf")
+        for i in range(0, N-M+1):
+            m = min(m, (A[M+i-1] - A[i]))
+        
+        return m
             
+
+
+
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
