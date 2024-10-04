@@ -4,29 +4,27 @@ class Solution:
     def longestUniqueSubsttr(self, s):
         # code here
         n = len(s)
-        i = 0
-        j = 1
+        i = j = 0
         d = {}
-        d[s[i]] = i
         m = 0
-        while i < j and j < n:
-            ele = s[j]
-            if ele not in d:
-                d[ele] = j
+        while i <= j and j < n:
+            if s[j] not in d:
+                d[s[j]] = j
                 j += 1
             else:
-                if d[ele] < i:
-                    d[ele] = j
+                if d[s[j]] < i:
+                    d[s[j]] = j
                     j += 1
                 else:
-                    k = j-i
-                    m = max(m, k)
-                    i = d[ele]+1
-                    d[ele] = j
+                    m = max(m, j-i)
+                    i = d[s[j]] + 1
+                    d[s[j]] = j
                     j += 1
         m = max(m, j-i)
         return m
-        
+                
+
+
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
